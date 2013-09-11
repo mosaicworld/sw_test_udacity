@@ -133,9 +133,9 @@ def check_value(grid):
 def check_rep_row(grid):
     no_rep = True
     for item in grid:
-        for i in range(len(a_list)):
-            for j in range((i+1), len(a_list)):
-                if a_list[i] != 0 and a_list[i] == a_list[j]:
+        for i in range(len(item)):
+            for j in range((i+1), len(item)):
+                if item[i] != 0 and item[i] == item[j]:
                     no_rep = False    
     return no_rep
 
@@ -153,105 +153,23 @@ def check_rep_col(grid):
         list_col = []
     return no_rep
         
-def check_rep_subgrid(grid): #works but not good b/c super redundant and should figure out the pattern
-#for first 3, range of i is same but range of j changes
-#for 2nd group of 3, range of i is same but range of j changes
-#for last group of 3, range of i is same but range of j changes
-#range of i & j can always be defined as a factor of the sqrt(len(grid))
+def check_rep_subgrid(grid):
     no_rep = True
     list_subgrid = []
+    grid_subgrid = []
     #kind of combo of both rep_row and rep_col but only partial in any given direction
-    for i in range(int(math.sqrt(len(grid)))):
-        for j in range(int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(int(math.sqrt(len(grid)))):
-        for j in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(int(math.sqrt(len(grid)))):
-        for j in range(2*int(math.sqrt(len(grid))), len(grid)):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-        for j in range(int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-        for j in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-        for j in range(2*int(math.sqrt(len(grid))), len(grid)):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []    
-
-    for i in range(2*int(math.sqrt(len(grid))), len(grid)):
-        for j in range(int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(2*int(math.sqrt(len(grid))), len(grid)):
-        for j in range(int(math.sqrt(len(grid))), 2*int(math.sqrt(len(grid)))):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []
-
-    for i in range(2*int(math.sqrt(len(grid))), len(grid)):
-        for j in range(2*int(math.sqrt(len(grid))), len(grid)):
-            list_subgrid.append(grid[i][j])
-    print(list_subgrid)
-    for i in range(len(list_subgrid)): #not good b/c repetitive - check_rep_row(grid)
-        for j in range((i+1), len(list_subgrid)):
-            if list_subgrid[i] != 0 and list_subgrid[i] == list_subgrid[j]:
-                no_rep = False
-    list_subgrid = []  
-    
-    return no_rep
+    for a in range(int(math.sqrt(len(grid)))):
+        b = a + 1
+        for c in range(int(math.sqrt(len(grid)))):
+            d = c + 1
+            for i in range(a*(int(math.sqrt(len(grid)))), b*(int(math.sqrt(len(grid))))):
+                for j in range(c*(int(math.sqrt(len(grid)))), d*(int(math.sqrt(len(grid))))):
+                    list_subgrid.append(grid[i][j])
+            #print(list_subgrid)
+            grid_subgrid.append(list_subgrid)
+            list_subgrid = []
+    #print(grid_subgrid)    
+    return check_rep_row(grid_subgrid)
 
 print check_sudoku(ill_formed) # --> None
 print check_sudoku(valid)      # --> True
